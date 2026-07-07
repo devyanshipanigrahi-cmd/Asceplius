@@ -1,134 +1,199 @@
-# ASCLEPIUS
+# 🛡️ ASCLEPIUS
 
-### *The Autonomous Healing System for Enterprise AI Agents.*
+## The Autonomous Immune System for Enterprise AI Agents
 
----
-
-## Executive Summary
-
-**ASCLEPIUS** is an autonomous operating system designed to monitor, diagnose, validate, deploy, and evolve enterprise AI agents. Operating as next-generation AIOps/SRE for large language model agents, it manages the complete lifecycle of agent operational failures (e.g., hallucinations, prompt drift, API timeouts, and tool outages). Instead of retraining the underlying model, ASCLEPIUS resolves issues dynamically and optimizes future behavior via persistent memory, strategy versioning, and knowledge graphs.
+*"What if AI agents could heal themselves instead of waiting for engineers?"*
 
 ---
 
-## The Enterprise Problem
+<img width="1912" height="991" alt="Screenshot 2026-07-07 135949" src="https://github.com/user-attachments/assets/c25d44f8-7d1c-4249-896f-9c3fd6dc3b25" />
 
-Organizations are deploying hundreds of autonomous agents (e.g., Support, Coding, HR, Finance). Over time, these agents degrade due to:
-* **LLM Hallucinations & Prompt Drift**
-* **External API & Tool failures (MCP server outages)**
-* **Package/Dependency conflicts**
-* **Security vulnerability exposures**
 
-Today, site reliability engineers manually diagnose and patch these agents. **ASCLEPIUS** automates the entire loop: **Observe → Detect → Diagnose → Repair → Validate → Deploy → Learn**.
+
+
+
 
 ---
 
-## Key Innovations
+## The Problem
 
-1. **Autonomous Healing**: Continuous monitoring and automated deployment of patch scripts or prompt modifications inside sandboxed environments.
-2. **Enterprise Memory**: A NetworkX directed graph persistent store that maps failures to successful strategies, creating an immutable timeline of organization learning.
-3. **Reflection Engine**: Post-healing analysis (`reflect_on_recovery`) that grades recovery success, updates strategy confidence weights, and updates the knowledge graph.
-4. **Zero-Model Retraining**: Evolution happens at the system level (graph pathways, prompt versions, and response strategies) rather than computationally expensive fine-tuning.
+Enterprises are rapidly deploying AI agents across customer support, software development, HR, finance, procurement, and many other business functions. While these agents automate work and improve productivity, they inevitably become less reliable over time. Hallucinations, prompt drift, API changes, tool failures, dependency conflicts, and security issues can all degrade their performance.
+
+Today, recovering from these failures is largely a manual process. Engineers must investigate logs, identify the root cause, decide on a recovery strategy, validate the fix, deploy it safely, and document what happened for future reference.
+
+As organizations grow from managing a handful of AI agents to hundreds, this operational burden scales rapidly. The challenge is no longer building AI agents—it's keeping them reliable, secure, and resilient throughout their lifecycle.
+---
+
+# Our Solution
+
+ASCLEPIUS approaches enterprise AI reliability the way the human immune system protects the body. Instead of waiting for engineers to notice and repair failures, it continuously monitors AI agents, detects abnormal behavior, investigates the root cause, generates a recovery strategy, validates the proposed solution, and safely restores the affected agent.
+
+What makes ASCLEPIUS different is that every recovery becomes organizational knowledge. Successful strategies are recorded in a persistent knowledge graph, allowing similar incidents to be resolved more efficiently in the future. Rather than retraining the underlying language model, ASCLEPIUS improves the operational system around it—continuously evolving its recovery strategies, decision-making process, and organizational memory with every incident it handles.
 
 ---
 
-## Architecture Overview
+# Tech Stack
 
-ASCLEPIUS is built on a clean split:
-* **Backend**: FastAPI + SQLite for relational audit records, combined with a NetworkX knowledge graph mapping incident resolutions.
-* **Frontend**: A high-density Mission Control center powered by React + TypeScript, React Flow (interactive force-directed network graph), and TailwindCSS (v4).
+### Backend
 
-### Multi-Agent Orchestration Loop
+- Python
+- FastAPI
+- SQLite
+- SQLAlchemy
+- NetworkX
+- Pydantic
+
+### Frontend
+
+- React
+- TypeScript
+- Tailwind CSS
+- React Flow
+- Vite
+
+---
+
+# How ASCLEPIUS Works
+
+Unlike traditional monitoring systems that only report failures, ASCLEPIUS manages the complete recovery lifecycle autonomously. Each stage is handled by a specialized agent, and every successful recovery is recorded in a knowledge graph, allowing similar incidents to be resolved more efficiently in the future.
+
+## Multi-Agent Recovery Pipeline
+
+| Agent | Responsibility |
+|--------|----------------|
+| **Argus** | Continuously monitors enterprise AI agents and detects abnormal behavior. |
+| **Chiron** | Analyzes logs and incident context to identify the root cause. |
+| **Panacea** | Generates an appropriate recovery strategy for the detected issue. |
+| **Hygieia** | Performs security and safety validation before deployment. |
+| **Phoenix** | Deploys the approved recovery and supports rollback if necessary. |
+| **Mnemosyne** | Stores incident history, updates the knowledge graph, and records lessons learned for future recoveries. |
 
 ```mermaid
-graph TD
-    A[Enterprise Fleet] -->|Anomalies/Outages| B[ARGUS Monitoring Agent]
-    B -->|Logs & Context| C[CHIRON Diagnosis Agent]
-    C -->|Root Cause| D[PANACEA Recovery Agent]
-    D -->|Proposed Patch| E[HYGIEIA Security Agent]
-    E -->|Sandbox Validation| F[PHOENIX Deployment Agent]
-    F -->|Relational Registry| G[MNEMOSYNE Memory Agent]
-    G -->|Execution Outcomes| H[Reflection Engine]
-    H -->|Update KG Weights & Prompt Scores| A
+flowchart LR
+
+Fleet[Enterprise AI Fleet]
+--> Argus[Argus]
+
+Argus --> Chiron[Chiron]
+
+Chiron --> Panacea[Panacea]
+
+Panacea --> Hygieia[Hygieia]
+
+Hygieia --> Phoenix[Phoenix]
+
+Phoenix --> Mnemosyne[Mnemosyne]
+
+Mnemosyne --> Reflection[Reflection Engine]
+
+Reflection --> KG[(Knowledge Graph)]
+
+KG -. Reusable recovery knowledge .-> Fleet
+```
+
+## Why This Approach?
+
+| Traditional Monitoring | ASCLEPIUS |
+|------------------------|-----------|
+| Detects failures | Detects, diagnoses, and coordinates recovery |
+| Manual investigation and repair | Autonomous multi-agent recovery workflow |
+| Recovery knowledge remains in documentation | Knowledge is stored in a persistent graph for reuse |
+| Similar incidents require repeated effort | Previous recoveries accelerate future recoveries |
+
+
+---
+
+# See It In Action
+
+The project includes two demonstrations.
+
+## 🎬 Mission Control
+
+Explore the enterprise dashboard.
+
+Watch the health of the AI fleet, operational metrics, incident history, recovery pipeline, and knowledge graph.
+
+📺 **Video:** 
+> https://github.com/user-attachments/assets/09b2d122-4590-4d19-9f7b-9bdc9e3b9112
+
+---
+
+## ⚡ Autonomous Healing
+
+Inject a simulated failure such as:
+
+- API Timeout
+- Prompt Drift
+- Hallucination
+- Tool Failure
+
+Then watch ASCLEPIUS automatically:
+
+<img width="1536" height="1024" alt="ChatGPT Image Jul 7, 2026, 09_58_36 PM" src="https://github.com/user-attachments/assets/41219383-5918-4d1f-89b3-a47b7358b8fb" />
+
+
+
+Every recovery updates the system's organizational memory.
+
+Future incidents can reuse previous successful strategies instead of starting from scratch.
+
+📺 Video: 
+> https://github.com/user-attachments/assets/2e3d4b3a-975e-4e71-b20a-c386863cb9b0
+
+---
+
+# Project Structure
+
+```text
+backend/
+    agents/
+    api/
+    database/
+    orchestration/
+    reflection/
+    simulation/
+    knowledge_graph/
+
+frontend/
+    components/
+    context/
+    pages/
 ```
 
 ---
 
-## Tech Stack
+# Run Locally
 
-* **Backend**: Python 3.10+, FastAPI, SQLAlchemy (SQLite), NetworkX, Pydantic (v2)
-* **Frontend**: React, TypeScript, TailwindCSS (v4), React Flow, Lucide Icons, Vite
-* **Package Management**: Pip, Npm
+### Backend
 
----
-
-## Project Structure
-
-```
-asclepius/
-├── backend/
-│   ├── agents/            # Google ADK agent orchestration classes
-│   ├── api/               # FastAPI setup and routers
-│   ├── core/              # Global config and logging modules
-│   ├── database/          # SQLite models and connection setup
-│   ├── knowledge_graph/   # NetworkX Graph file management
-│   ├── memory/            # JSON Memory to Python Object parsers
-│   ├── orchestration/     # Agent state machine transitions
-│   ├── reflection/        # Post-healing cognitive reflections
-│   └── simulation/        # Synthetic fault injection engine
-├── frontend/
-│   ├── src/
-│   │   ├── components/    # TopNav, Panels, Graph, Drawer
-│   │   ├── context/       # Live API polling & simulation state context
-│   │   └── index.css      # Custom styles & Tailwind imports
-│   └── vite.config.ts     # Proxy routes to backend
-└── .gitignore
-```
-
----
-
-## Installation & Running
-
-### 1. Prerequisites
-Ensure you have Python 3.10+ and Node.js installed on your system.
-
-### 2. Running the Backend
 ```bash
 cd backend
 pip install -r requirements.txt
 uvicorn api.main:app --reload
 ```
-*The database `asclepius.db` and the graph `knowledge_graph.json` will be initialized in the backend directory on start.*
 
-### 3. Running the Frontend
-In a new terminal:
+### Frontend
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-Open `http://localhost:5173` to access the Mission Control dashboard.
+
+Open:
+
+```
+http://localhost:5173
+```
 
 ---
 
-## API Documentation Overview
+# Future Vision
 
-* `GET /api/v1/agents`: Lists all monitored enterprise agent nodes.
-* `GET /api/v1/incidents`: Historical timeline of agent failures and states.
-* `GET /api/v1/metrics`: Dynamic operational efficiency, DB size, and reflection stats.
-* `GET /api/v1/knowledge`: Returns NetworkX-compatible node/link schema.
-* `POST /api/v1/simulation/run`: Injects a failure vector on a specific agent to run the healing workflow.
+ASCLEPIUS explores a future where enterprise AI systems become operationally resilient.
 
----
+Rather than depending on engineers for every failure, AI systems can continuously monitor themselves, recover safely, preserve organizational knowledge, and improve over time.
 
-## Demo Walkthrough
+The goal isn't simply to build smarter AI agents.
 
-1. Go to the dashboard and open the **[ CMD PALETTE ]** injector.
-2. Select **Coding Agent** and choose **LLM Hallucination (Prompt Drift)**.
-3. Hit **INJECT FAILURE**.
-4. Observe the center canvas react: the target node turns Red/Amber, the left log tracks the SOC detection, the right sidebar highlights the active agent (Argus → Chiron → Panacea → Hygieia → Phoenix → Mnemosyne), and the reflection panel updates with lessons learned.
-5. Watch the node enter a blue "Learning" phase before settling back to Green "Healthy" with an updated memory score.
-
----
-
-## License
-MIT License.
+The goal is to build AI systems that become **more reliable with experience.**
