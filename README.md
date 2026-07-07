@@ -69,7 +69,7 @@ Unlike traditional monitoring systems that only report failures, ASCLEPIUS manag
 | **Mnemosyne** | Stores incident history, updates the knowledge graph, and records lessons learned for future recoveries. |
 
 ```mermaid
-flowchart LR
+flowchart TD
 
 Fleet[Enterprise AI Fleet]
 --> Argus[Argus]
