@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean, JSON, Float
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from backend.database.sqlite import Base
+from database.sqlite import Base
 
 class Agent(Base):
     __tablename__ = "agents"

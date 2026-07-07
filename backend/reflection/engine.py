@@ -1,8 +1,8 @@
 from typing import Dict, Any, Optional
 import logging
-from backend.database.sqlite import SessionLocal
-from backend.database.models import Reflection
-from backend.knowledge_graph.graph import kg
+from database.sqlite import SessionLocal
+from database.models import Reflection
+from knowledge_graph.graph import kg
 
 class ReflectionEngine:
     def __init__(self):

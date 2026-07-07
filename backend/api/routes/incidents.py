@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from backend.database.sqlite import get_db
-from backend.database.models import Incident
+from database.sqlite import get_db
+from database.models import Incident
 
 router = APIRouter(prefix="/incidents", tags=["incidents"])
 

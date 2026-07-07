@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from backend.knowledge_graph.graph import kg
+from knowledge_graph.graph import kg
 import networkx as nx
 
 router = APIRouter(prefix="/knowledge", tags=["knowledge"])

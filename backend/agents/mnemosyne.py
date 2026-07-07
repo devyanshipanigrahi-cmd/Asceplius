@@ -1,6 +1,6 @@
 from typing import Dict, Any
-from backend.agents.base import BaseAgent
-from backend.memory.manager import MemoryManager, MemoryState
+from agents.base import BaseAgent
+from memory.manager import MemoryManager, MemoryState
 
 class MnemosyneAgent(BaseAgent):
     def __init__(self):

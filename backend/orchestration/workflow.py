@@ -1,13 +1,13 @@
 from typing import Dict, Any
 import logging
-from backend.agents.asclepius import AsclepiusAgent
-from backend.agents.argus import ArgusAgent
-from backend.agents.chiron import ChironAgent
-from backend.agents.panacea import PanaceaAgent
-from backend.agents.hygieia import HygieiaAgent
-from backend.agents.phoenix import PhoenixAgent
-from backend.agents.mnemosyne import MnemosyneAgent
-from backend.reflection.engine import ReflectionEngine
+from agents.asclepius import AsclepiusAgent
+from agents.argus import ArgusAgent
+from agents.chiron import ChironAgent
+from agents.panacea import PanaceaAgent
+from agents.hygieia import HygieiaAgent
+from agents.phoenix import PhoenixAgent
+from agents.mnemosyne import MnemosyneAgent
+from reflection.engine import ReflectionEngine
 
 class IncidentWorkflow:
     def __init__(self):

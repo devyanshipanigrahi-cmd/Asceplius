@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 from typing import Dict, Any, Optional
-from backend.knowledge_graph.graph import kg
-from backend.database.sqlite import SessionLocal
-from backend.database.models import Incident
+from knowledge_graph.graph import kg
+from database.sqlite import SessionLocal
+from database.models import Incident
 from datetime import datetime, timezone
 import json
 

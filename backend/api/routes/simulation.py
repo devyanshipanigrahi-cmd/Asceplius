@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from backend.simulation.engine import SimulationEngine
+from simulation.engine import SimulationEngine
 
 router = APIRouter(prefix="/simulation", tags=["simulation"])
 

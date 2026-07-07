@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from backend.core.config import settings
-from backend.core.logging import setup_logging
-from backend.api.routes import health, simulation, agents, incidents, metrics, reflections, knowledge
-from backend.database.sqlite import engine, Base, SessionLocal
-from backend.database.models import Agent
+from core.config import settings
+from core.logging import setup_logging
+from api.routes import health, simulation, agents, incidents, metrics, reflections, knowledge
+from database.sqlite import engine, Base, SessionLocal
+from database.models import Agent
 
 # Initialize logging
 setup_logging()

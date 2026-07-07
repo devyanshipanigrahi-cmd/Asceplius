@@ -1,9 +1,9 @@
 import logging
 from typing import Dict, Any
-from backend.orchestration.workflow import IncidentWorkflow
-from backend.database.sqlite import SessionLocal
-from backend.database.models import Agent, Recovery
-from backend.memory.manager import MemoryManager, MemoryState
+from orchestration.workflow import IncidentWorkflow
+from database.sqlite import SessionLocal
+from database.models import Agent, Recovery
+from memory.manager import MemoryManager, MemoryState
 import uuid
 
 class SimulationEngine:

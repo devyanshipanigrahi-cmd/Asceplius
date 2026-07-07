@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from backend.agents.base import BaseAgent
+from agents.base import BaseAgent
 
 class PhoenixAgent(BaseAgent):
     def __init__(self):
